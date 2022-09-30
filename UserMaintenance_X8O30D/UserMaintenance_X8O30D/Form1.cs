@@ -53,5 +53,10 @@ namespace UserMaintenance_X8O30D
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            users.RemoveAt(listBox1.SelectedIndex);
+        }
     }
 }
