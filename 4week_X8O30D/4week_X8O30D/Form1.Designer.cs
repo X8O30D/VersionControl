@@ -1,4 +1,4 @@
-﻿namespace _4Het_X8O30D
+﻿namespace _4week_X8O30D
 {
     partial class Form1
     {

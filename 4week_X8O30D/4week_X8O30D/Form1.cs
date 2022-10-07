@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _4Het_X8O30D
+namespace _4week_X8O30D
 {
     public partial class Form1 : Form
     {
