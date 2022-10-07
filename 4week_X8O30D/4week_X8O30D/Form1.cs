@@ -12,9 +12,17 @@ namespace _4week_X8O30D
 {
     public partial class Form1 : Form
     {
+        List<Flat> Flats;
+        RealEstateEntities context = new RealEstateEntities();
         public Form1()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        void LoadData()
+        {
+            Flats = context.Flats.ToList();
         }
     }
 }
