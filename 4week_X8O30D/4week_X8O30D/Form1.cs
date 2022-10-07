@@ -43,7 +43,7 @@ namespace _4week_X8O30D
 
                 xlSheet = xlWB.ActiveSheet;
 
-                //CreateTable();
+                CreateTable();
 
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
@@ -58,6 +58,23 @@ namespace _4week_X8O30D
                 xlWB = null;
                 xlApp = null;
             }
+        }
+
+        void CreateTable()
+        {
+
+            string[] headers = new string[]
+            {
+                "Kód",
+                "Eladó",
+                "Oldal",
+                "Kerület",
+                "Lift",
+                "Szobák száma",
+                "Alapterület (m2)",
+                "Ár (mFt)",
+                "Négyzetméter ár (Ft/m2)"
+            };
         }
     }
 }
