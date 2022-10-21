@@ -1,4 +1,5 @@
-﻿using _5Het_X8O30D.MnbServiceReference;
+﻿using _5Het_X8O30D.Entities;
+using _5Het_X8O30D.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,13 @@ namespace _5Het_X8O30D
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> Rates = new BindingList<RateData>();
+        
         public Form1()
         {
             InitializeComponent();
-
             ExchangeRate();
-
-
+            dataGridView1.DataSource = Rates;
         }
 
         void ExchangeRate()
