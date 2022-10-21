@@ -11,6 +11,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 
 namespace _5Het_X8O30D
@@ -23,12 +24,11 @@ namespace _5Het_X8O30D
         {
             InitializeComponent();
             
-            ExchangeRate();
+            //ExchangeRate();
+            //Excel();
             dataGridView1.DataSource = Rates;
-        }
+            chartRateData.DataSource = Rates;
 
-        public void ExchangeRate()
-        {
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
@@ -40,10 +40,8 @@ namespace _5Het_X8O30D
 
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
-        }
 
-        void Excel()
-        {
+
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(result);
 
@@ -53,14 +51,42 @@ namespace _5Het_X8O30D
                 Rates.Add(rd);
 
                 rd.Date = DateTime.Parse(item.GetAttribute("date"));
-                
-                var childElement=(XmlElement)item.ChildNodes[0];
+
+                var childElement = (XmlElement)item.ChildNodes[0];
                 rd.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
                 var value = decimal.Parse(childElement.InnerText);
                 if (unit != 0) rd.Value = value / unit;
             }
+            Chart();
+        }
+
+        //public void ExchangeRate()
+        //{
+            
+        //}
+
+        //void Excel()
+        //{
+            
+        //}
+
+        void Chart()
+        {
+            var series = chartRateData.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+
+            series.BorderWidth = 2;
+
+            var legend = chartRateData.Legends[0];
+            legend.Enabled = false;
+            var chartArea = chartRateData.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsStartedFromZero = false;
         }
     }
 }
