@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace _6gyakorlat_X8O30D.Entities
 {
-    public class Toy : Abstractions.Toy
+    public class Ball : Toy
     {
+        public Ball(Color color)
+        {
+            BallColor = new SolidBrush(color);
+        }
+        public SolidBrush BallColor { get; private set; }
         protected override void DrawImage(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+            g.FillEllipse(BallColor, 0, 0, Width, Height);
         }
     }
 }

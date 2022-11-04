@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Toy = _6gyakorlat_X8O30D.Abstractions.Toy;
 
 namespace _6gyakorlat_X8O30D
 {
@@ -71,7 +70,11 @@ namespace _6gyakorlat_X8O30D
 
         private void ballbutton_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory()
+            {
+                BallColor = button1.BackColor
+            };
+
         }
 
 
