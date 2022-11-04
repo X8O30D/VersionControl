@@ -38,10 +38,10 @@ namespace _6gyakorlat_X8O30D
         private void createTimer_Tick(object sender, EventArgs e)
         {
             var toy = Factory.CreateNew();
-            _toys.Add(toy);
             mainpanel.Controls.Add(toy);
             toy.Left = -Width;
             toy.Top = 200;
+            _toys.Add(toy);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace _6gyakorlat_X8O30D
                     pozi = toy.Left;
                 }
             }
-            if (pozi>1000)
+            if (pozi > 1000)
             {
                 var torlendo = _toys[0];
                 _toys.Remove(torlendo);
