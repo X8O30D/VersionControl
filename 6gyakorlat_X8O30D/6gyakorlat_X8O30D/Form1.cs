@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Toy = _6gyakorlat_X8O30D.Abstractions.Toy;
 
 namespace _6gyakorlat_X8O30D
 {
@@ -16,11 +17,17 @@ namespace _6gyakorlat_X8O30D
     {
         List<Toy> _toys=new List<Toy>();
 
+        private Toy _nextToy;
+
         private IToyFactory _factory;
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set 
+            { 
+                _factory = value;
+                DisplayNext();
+            }
         }
 
         public Form1()
@@ -28,7 +35,6 @@ namespace _6gyakorlat_X8O30D
             InitializeComponent();
             Factory = new BallFactory();
         }
-      
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
@@ -36,6 +42,7 @@ namespace _6gyakorlat_X8O30D
             _toys.Add(toy);
             mainpanel.Controls.Add(toy);
             toy.Left = -Width;
+            toy.Top = 200;
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -55,6 +62,26 @@ namespace _6gyakorlat_X8O30D
                 _toys.Remove(torlendo);
                 mainpanel.Controls.Remove(torlendo);
             }
+        }
+                
+        private void carbutton_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
+
+        private void ballbutton_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+
+        void DisplayNext()
+        {
+            if (_nextToy != null) Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = label1.Top + label1.Height + 20;
+            _nextToy.Left = label1.Left;
+            Controls.Add(_nextToy);
         }
     }
 }

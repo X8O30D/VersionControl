@@ -32,11 +32,18 @@
             this.mainpanel = new System.Windows.Forms.Panel();
             this.createTimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
+            this.carbutton = new System.Windows.Forms.Button();
+            this.ballbutton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mainpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainpanel
             // 
             this.mainpanel.AllowDrop = true;
+            this.mainpanel.Controls.Add(this.label1);
+            this.mainpanel.Controls.Add(this.ballbutton);
+            this.mainpanel.Controls.Add(this.carbutton);
             this.mainpanel.Location = new System.Drawing.Point(2, 1);
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(1120, 699);
@@ -54,6 +61,35 @@
             this.conveyorTimer.Interval = 10;
             this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
             // 
+            // carbutton
+            // 
+            this.carbutton.Location = new System.Drawing.Point(27, 21);
+            this.carbutton.Name = "carbutton";
+            this.carbutton.Size = new System.Drawing.Size(92, 92);
+            this.carbutton.TabIndex = 0;
+            this.carbutton.Text = "CAR";
+            this.carbutton.UseVisualStyleBackColor = true;
+            this.carbutton.Click += new System.EventHandler(this.carbutton_Click);
+            // 
+            // ballbutton
+            // 
+            this.ballbutton.Location = new System.Drawing.Point(137, 21);
+            this.ballbutton.Name = "ballbutton";
+            this.ballbutton.Size = new System.Drawing.Size(92, 92);
+            this.ballbutton.TabIndex = 1;
+            this.ballbutton.Text = "BALL";
+            this.ballbutton.UseVisualStyleBackColor = true;
+            this.ballbutton.Click += new System.EventHandler(this.ballbutton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(298, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Coming next:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -62,6 +98,8 @@
             this.Controls.Add(this.mainpanel);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.mainpanel.ResumeLayout(false);
+            this.mainpanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -71,6 +109,9 @@
         private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.Timer createTimer;
         private System.Windows.Forms.Timer conveyorTimer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ballbutton;
+        private System.Windows.Forms.Button carbutton;
     }
 }
 
