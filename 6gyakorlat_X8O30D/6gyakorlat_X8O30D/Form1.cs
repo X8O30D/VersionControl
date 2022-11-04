@@ -77,14 +77,24 @@ namespace _6gyakorlat_X8O30D
 
         }
 
+        private void presentbutton_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory()
+            {
+                RibbonColor = ribbonbutton.BackColor,
+                BoxColor = boxbutton.BackColor
+            };
+        }
 
         void DisplayNext()
         {
-            if (_nextToy != null) Controls.Remove(_nextToy);
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
             _nextToy = Factory.CreateNew();
             _nextToy.Top = label1.Top + label1.Height + 20;
             _nextToy.Left = label1.Left;
             Controls.Add(_nextToy);
+            mainpanel.Controls.Add(_nextToy);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -98,5 +108,7 @@ namespace _6gyakorlat_X8O30D
             }
             button.BackColor = colorPicker.Color;
         }
+
+        
     }
 }
