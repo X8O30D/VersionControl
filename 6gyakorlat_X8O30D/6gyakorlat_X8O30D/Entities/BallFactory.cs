@@ -9,9 +9,9 @@ namespace _6gyakorlat_X8O30D.Entities
 {
     public class BallFactory : IToyFactory
     {
-        public Toy CreateNew()
+        public Abstractions.Toy CreateNew()
         {
-            return new Ball();
+            return new Toy();
         }
     }
 }

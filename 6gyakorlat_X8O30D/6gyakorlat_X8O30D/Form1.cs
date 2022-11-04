@@ -1,4 +1,5 @@
-﻿using _6gyakorlat_X8O30D.Entities;
+﻿using _6gyakorlat_X8O30D.Abstractions;
+using _6gyakorlat_X8O30D.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,10 @@ namespace _6gyakorlat_X8O30D
 {
     public partial class Form1 : Form
     {
-        List<Ball>_balls=new List<Ball>();
+        List<Toy> _toys=new List<Toy>();
 
-        private BallFactory _factory;
-        public BallFactory Factory
+        private IToyFactory _factory;
+        public IToyFactory Factory
         {
             get { return _factory; }
             set { _factory = value; }
@@ -31,27 +32,27 @@ namespace _6gyakorlat_X8O30D
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            var ball = Factory.CreateNew();
-            _balls.Add(ball);
-            mainpanel.Controls.Add(ball);
-            ball.Left = -Width;
+            var toy = Factory.CreateNew();
+            _toys.Add(toy);
+            mainpanel.Controls.Add(toy);
+            toy.Left = -Width;
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var pozi = 0;
-            foreach (var ball in _balls)
+            foreach (var toy in _toys)
             {
-                ball.MoveToy();
-                if (ball.Left > pozi)
+                toy.MoveToy();
+                if (toy.Left > pozi)
                 {
-                    pozi = ball.Left;
+                    pozi = toy.Left;
                 }
             }
             if (pozi>1000)
             {
-                var torlendo = _balls[0];
-                _balls.Remove(torlendo);
+                var torlendo = _toys[0];
+                _toys.Remove(torlendo);
                 mainpanel.Controls.Remove(torlendo);
             }
         }

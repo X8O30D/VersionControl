@@ -9,7 +9,7 @@ namespace _6gyakorlat_X8O30D.Entities
 {
     internal class CarFactory : IToyFactory
     {
-        public Toy CreateNew()
+        public Abstractions.Toy CreateNew()
         {
             return new Car();
         }
