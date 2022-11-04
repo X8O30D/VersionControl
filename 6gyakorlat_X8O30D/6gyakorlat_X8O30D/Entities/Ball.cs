@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace _6gyakorlat_X8O30D.Entities
 {
-    internal class Labda : Label
+    internal class Ball : Label
     {
-        public Labda()
+        public Ball()
         {
             AutoSize = false;
             Height = 50;
