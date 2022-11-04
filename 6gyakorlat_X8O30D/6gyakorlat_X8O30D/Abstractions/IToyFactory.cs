@@ -8,6 +8,6 @@ namespace _6gyakorlat_X8O30D.Abstractions
 {
     public interface IToyFactory
     {
-        Toy Createnew();
+        Toy CreateNew();
     }
 }
