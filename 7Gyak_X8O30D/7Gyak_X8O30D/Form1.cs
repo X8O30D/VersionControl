@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,24 @@ namespace _7Gyak_X8O30D
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fd = new SaveFileDialog();
+            fd.InitialDirectory = Application.StartupPath;
+
+            if (fd.ShowDialog() != DialogResult.OK) return;
+
+            using (StreamWriter sw=new StreamWriter(fd.FileName, false, Encoding.UTF8))
+            {
+                sw.WriteLine("Időszak             Nyereség");
+                foreach (var item in )
+                {
+
+                }
+            }
+
         }
     }
 }
