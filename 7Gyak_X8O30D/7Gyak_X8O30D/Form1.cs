@@ -79,10 +79,10 @@ namespace _7Gyak_X8O30D
             using (StreamWriter sw=new StreamWriter(fd.FileName, false, Encoding.UTF8))
             {
                 sw.WriteLine("Időszak             Nyereség");
-                foreach (var item in )
-                {
+                //foreach (var item in )
+                //{
 
-                }
+                //}
             }
 
         }
