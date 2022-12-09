@@ -58,6 +58,7 @@ namespace _10gyak__x8o30d
             if (winners.Count() > 0)
             {
                 winnerBrain = winners.FirstOrDefault().Brain.Clone();
+                button1.Visible = true;
                 gc.GameOver -= Gc_GameOver;
                 return;
             }
