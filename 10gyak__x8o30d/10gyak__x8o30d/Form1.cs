@@ -28,6 +28,11 @@ namespace _10gyak__x8o30d
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
 
+            for (int i = 0; i < populationSize; i++)
+            {
+                gc.AddPlayer(nbrOfSteps);
+            }
+            gc.Start();
         }
     }
 }
