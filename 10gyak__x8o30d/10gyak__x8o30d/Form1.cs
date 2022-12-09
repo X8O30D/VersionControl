@@ -19,6 +19,9 @@ namespace _10gyak__x8o30d
         public Form1()
         {
             InitializeComponent();
+
+            ga = gc.ActivateDisplay();
+            this.Controls.Add(ga);
         }
     }
 }
