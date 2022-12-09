@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,8 @@ namespace _10gyak__x8o30d
         {
             InitializeComponent();
 
+            gc.GameOver += Gc_GameOver;
+
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
 
@@ -33,6 +36,14 @@ namespace _10gyak__x8o30d
                 gc.AddPlayer(nbrOfSteps);
             }
             gc.Start();
+        }
+
+        private void Gc_GameOver(object sender)
+        {
+            generation++;
+            label1.Text = string.Format(
+                "{0}. generáció",
+                generation);
         }
     }
 }
